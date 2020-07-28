@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--MainFragment layout dimens-->
+    <dimen name="main_layout_margin">16dp</dimen>
+    <dimen name="main_edit_text_layout_margin">4dp</dimen>
+    <dimen name="main_button_search_layout_margin">16dp</dimen>
+
+    <!--recycler_album_item dimens-->
+    <dimen name="recycler_album_image_width">100dp</dimen>
+    <dimen name="recycler_album_image_height">100dp</dimen>
+    <dimen name="recycler_album_album_name_margin">16dp</dimen>
+
+    <!--recycler_track_item-->
+    <dimen name="recycler_track_margin">12dp</dimen>
+    <dimen name="recycler_track_image_width">20dp</dimen>
+    <dimen name="recycler_track_image_height">20dp</dimen>
+    <dimen name="recycler_track_image_margin">12dp</dimen>
+
+    <!--DetailFragment layout dimens-->
+    <dimen name="detail_layout_margin">16dp</dimen>
+    <dimen name="album_name_text_size">18sp</dimen>
+    <dimen name="artist_name_text_size">16sp</dimen>
+    <dimen name="detail_album_image_width">150dp</dimen>
+    <dimen name="detail_album_image_height">150dp</dimen>
+    <dimen name="detail_normal_layout_margin">8dp</dimen>
+    <dimen name="detail_double_layout_margin">16dp</dimen>
+</resources>

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ItunesApp2</string>
+    <string name="error_album_lost">Error: Album id lost</string>
+    <string name="network_error">Network Error</string>
+    <string name="query_empty">Your query is empty</string>
+    <string name="songs">songs</string>
+    <string name="search">Search</string>
+    <string name="query">Enter your query</string>
 </resources>
