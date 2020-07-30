@@ -7,16 +7,12 @@ import com.example.itunesapp2.navigation.Screens
 import com.example.itunesapp2.utils.ServerResponse
 import kotlinx.coroutines.*
 import ru.terrakok.cicerone.Router
-import timber.log.Timber
 import toothpick.ktp.delegate.inject
-import java.util.concurrent.TimeUnit
 
 class MainViewModel: ViewModel() {
 
-    val router: Router by inject<Router>()
-    val serverRepository: ServerRepository by inject<ServerRepository>()
-
-    private var cashedCollectionList : List<ResultCollectionResponse.CollectionResponse> = listOf()
+    private val router: Router by inject<Router>()
+    private val serverRepository: ServerRepository by inject<ServerRepository>()
 
     private var albumLiveData: MutableLiveData<ServerResponse<List<ResultCollectionResponse.CollectionResponse>>> = MutableLiveData()
 
@@ -33,14 +29,19 @@ class MainViewModel: ViewModel() {
         router.navigateTo(Screens.DetailScreen(album))
     }
 
+    fun resetSearch() {
+        cancelJob()
+        albumLiveData.value = ServerResponse.success(data = listOf())
+    }
+
     fun getAlbums(query: String) {
         cancelJob()
         job = viewModelScope.launch(handler) {
             albumLiveData.value = ServerResponse.loading()
-            cashedCollectionList = withContext(Dispatchers.IO) {
+            val collectionList = withContext(Dispatchers.IO) {
                 serverRepository.downloadCollections(query)
             }
-            albumLiveData.value = ServerResponse.success(data = cashedCollectionList)
+            albumLiveData.value = ServerResponse.success(data = collectionList)
         }
     }
 
